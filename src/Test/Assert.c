@@ -1,4 +1,4 @@
-#include "runtime/purescript.h"
+#include <purescript.h>
 #include "Effect.h"
 
 EFFECT_FUNC_2(Test_Assert_assert$, msg, cond, {
