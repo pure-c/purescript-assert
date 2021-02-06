@@ -1,8 +1,9 @@
 #include <purescript.h>
 
 PURS_FFI_FUNC_3(Test_Assert_assert$, msg, cond, _) {
-	const purs_str_t *str = purs_any_get_string(msg);
-	purs_assert(purs_any_get_int(cond), "%s", str->data);
+	const purs_str_t *str = purs_any_force_string(msg);
+	purs_assert(purs_any_force_int(cond), "%s", str->data);
+	PURS_RC_RELEASE(str);
 	return purs_any_null;
 }
 
